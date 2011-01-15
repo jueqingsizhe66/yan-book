@@ -327,7 +327,9 @@ doc/*.txt #忽略所有doc/下的文本文件，但是doc/server/arch.txt会包�
 
     git add .  //include all untracked file
     git reset -- a.c //从index file中删除掉登记的a.c
-    git add -i  //interactive, you can select
+    git add -i  //interactive, you can select files to add, 
+    select 4[add untraced] first  
+    
     git add -u  //not add untracked file
 
     他们之间的提交层次关系是 (1) -> (2) -> (3)
@@ -534,6 +536,10 @@ git remote rm pa 删掉pa，因为pa已经不再位项目做贡献了。
 \begin{verbatim}
 git commit -C HEAD -a --amend,对最后一次提交做一些修改。（只对最后一次修改有效）
 git revert HEAD^^ 会产生一个新的commit。
+
+0）add a,但是发现不想把a置于git控制中，可以用git reset -- a. 
+如果已经提交了，可以git rm a. 他会从index file中删除，但是working diretory 中保留a
+然后重新提交就可以了。
 
 1)刚刚修改还没有提交
 git reset HEAD a.c add了，但没有commit. 取消掉add的内容
