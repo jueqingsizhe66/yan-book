@@ -1,0 +1,66 @@
+% !Mode:: "TeX:UTF-8:Hard"
+\documentclass[a4paper,12pt,twoside]{book}
+\def\allfiles{}
+
+%\usepackage{ucs}
+%\usepackage[latin1]{inputenc}
+\usepackage{CJKutf8}
+\usepackage[T1]{fontenc}
+\usepackage{fontenc}  %好像是定义英文的字体，这个定义也非常重要 好像和色section{\latex}有关
+%\usepackage[utf8]{inputenc}
+%\usepackage{babel}
+%\usepackage[dvips]{graphicx}
+%\usepackage[dvips]{hyperref}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{layout}
+\usepackage{color}
+\usepackage{pifont}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{capt-of}
+%以上是\usepackage定义区
+		
+\hyphenation{base-line-skip man-u-script com-pu-ter} %只是一个说明，你可以这里定义分词的规则
+
+%\usepackage{ascii}
+\newcommand{\linuxcommand}[1]{\texttt{\textcolor{blue}{\$ #1 \Pisymbol{psy}{191}}}}
+\newcommand{\op}[1]{\textcolor{blue}{-#1}}
+\newcommand{\hotkey}[1]{\framebox{#1}}
+\newenvironment{screen}{\sffamily}{\rmfamily}
+%这个新命令支持多行单元格
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+\setcounter{secnumdepth}{3} %this command is to set the depth of content.
+
+\graphicspath{{preface/}{basic_knowledge/}{command/}{latex/}{tool/}}
+
+\includeonly{preface/preface,command/command,tool/tool,basic_knowledge/basic_knowledge, latex/latex} %这个可以定义只编译某个部分，提高编译速度
+
+\begin{document}
+\begin{CJK*}{UTF8}{song}
+%\bibliographystyle{plain}
+\bibliographystyle{plainnat}
+
+\include{yan_template}
+	
+\frontmatter
+\tableofcontents
+\listoffigures
+\listoftables
+\include{preface/preface}
+
+
+\mainmatter
+\include{command/command}
+\include{tool/tool}
+
+\include{basic_knowledge/basic_knowledge}
+\include{latex/latex}
+
+
+\backmatter
+\bibliography{book}
+\end{CJK*}
+\end{document}
