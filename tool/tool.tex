@@ -230,14 +230,14 @@ git://github.com/YanZhao/hello-world.git(只读版本) git@github.com:YanZhao/he
 	\item \linuxcommand{ssh-keygen -t rsa -C yan.zhao.74@gmail.com} \\
         	your public key has been saved in /c/Users/zhao/.ssh/id\_rsa.pub(for windows) ~/.ssh/(for Linux). Then you should paste the public key to the account in github.com. once you finish it, you can use command ssh git@github.com to test it. (github网站上面有更详细的说明。)\\ 你可以把is\_rsa.pub和is\_rsa两个文件拷贝到别的计算机上。这样就不用再另外的计算机上用ssh-keygen命令了。
          	(ssh -v will give you verbose information. you must restart ubuntu after you move id\_rsa to ~/.ssh)。
-         
+
 
 	\item It's a social website, you need to find some friends here and exchange idea. 中国有那些类似的github网站，目前我还不是很清楚。
 
     \item 有的时候，你看不到项目的超连接地址，可以点击右上角的小眼睛（watchers），也会出现pull request.
-    
+
     \item 完成以上步骤以后，还需要在本地对git进行简单的配置，这样别人才知道你的具体信息，才能和你联系啊。
-    
+
     \begin{verbatim}
 	git config --global user.name "zhaoyan"
 	git config --global user.email zhaoyan.hrb@gmail.com
@@ -289,7 +289,7 @@ doc/*.txt #忽略所有doc/下的文本文件，但是doc/server/arch.txt会包�
 		git init
 		touch README
 		git add README
-		git add . 
+		git add .
 //点代表所有的文件。Directories are added automatically when adding files inside them. That is, directories never have to be added to the repository, and are not tracked on their own. You can say "git add <dir>" and it will add files in there.
 		git rm README1 (可以删除一个文件)
 		git commit -m "first commit" ( you can't just give empty message)
@@ -304,9 +304,11 @@ doc/*.txt #忽略所有doc/下的文本文件，但是doc/server/arch.txt会包�
 		git remote show
 		//可以查看远端的repository情况。
 		git push origin master 	
-        //不能省略origin 和master 最好把这个命令写全。master 是默认本地存在的一个分支，你不用显式创建它。
+        //不能省略origin,如果不指定分支，默认为master。 其他分支时，把这个命令写全。master 是默认本地存在的一个分支，你不用显式创建它。
 		//这个命令把本地的内容“推”到服务器端。
 		//you must have private key file for ssh in those case, you can copy it from ~/.ssh
+        git merge origin/master
+        //默认为本地master分支， 你不能写成 git merge master 而忽略了origin/master 
 		\end{verbatim}
 
 \subsubsection{git基本图解}
@@ -327,9 +329,9 @@ doc/*.txt #忽略所有doc/下的文本文件，但是doc/server/arch.txt会包�
 
     git add .  //include all untracked file
     git reset -- a.c //从index file中删除掉登记的a.c
-    git add -i  //interactive, you can select files to add, 
-    select 4[add untraced] first  
-    
+    git add -i  //interactive, you can select files to add,
+    select 4[add untraced] first
+
     git add -u  //not add untracked file
 
     他们之间的提交层次关系是 (1) -> (2) -> (3)
@@ -537,7 +539,7 @@ git remote rm pa 删掉pa，因为pa已经不再位项目做贡献了。
 git commit -C HEAD -a --amend,对最后一次提交做一些修改。（只对最后一次修改有效）
 git revert HEAD^^ 会产生一个新的commit。
 
-0）add a,但是发现不想把a置于git控制中，可以用git reset -- a. 
+0）add a,但是发现不想把a置于git控制中，可以用git reset -- a.
 如果已经提交了，可以git rm a. 他会从index file中删除，但是working diretory 中保留a
 然后重新提交就可以了。
 
