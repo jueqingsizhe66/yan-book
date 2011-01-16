@@ -1031,14 +1031,26 @@
 		\item
 		\end{itemize}
 	\end{description}
+\chapter{moodle}
+\section{lamp}
+\begin{itemize}
+\item 安装lamp比较容易，可以直接sudo tasksel install lamp-server.如果没有tasksel，可以sudo apt-get install tasksel
+\item 利用mysql -u root -p 来登录到mysql. \\q来退出mysql程序。（所有mysql命令必须用分号结束）
+\item 修改\etc\apache2\sites-available\default 文件中的document root,然后sudo /etc/init.d/apache2 restart就可以了。
+
+\end{itemize}
 
 \chapter{Application}
 \section{Ubuntu}
 		\begin{itemize}
+		\item 虚拟机virtualbox中，首先 cd /media/VBOXADDITION_3.2...然后sudo ./autorun.sh 
+这样就可以利用很多virtualbox中的功能了，例如，可以sudo mount -t vboxsf ubuntu_share /mnt/shared 共享文件夹。
+ubuntu_share 在virtualbox窗口“设备”菜单 “安装数据空间...”
 		\item 取消屏幕锁定，系统--首选项--屏幕保护程序。
 		\item Nautilus start typing the search term. A small search text field will appear near the bottom-right of the window and files/folders will be matched as you type
 		\item unrar  filename.rar, replacing filename.rar with that which you downloaded
-		\item Click System ->Administration-> Software Sources. Click the Download from dropdown list and then select Other. In the list of servers, choose any you wish. You'll need to reload the package lists from the server when prompted.
+		
+\chapter{Application}中的功能\item Click System ->Administration-> Software Sources. Click the Download from dropdown list and then select Other. In the list of servers, choose any you wish. You'll need to reload the package lists from the server when prompted.
 		\item If Windows didn't cleanly shutdown then Ubuntu will refuse to mount the partition. If, even after Windows is cleanly shutdown, the Windows partition refuses to appear, then run a chkdsk on the partition from within Windows.
 		\item Terminal click Edit -> Current Profile and select the Colors tab. Then remove the check from Use colors from system theme and select a replacement from the Built-in schemes dropdown list. Try the Green on Black scheme.
 		\item Alt + F2 . Then type the name of the program. If it needs to run with root privileges, just type gksu beforehand.
