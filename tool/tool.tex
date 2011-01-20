@@ -51,6 +51,18 @@ cmd+L切换到地址栏。
 \item learn to use tab to explore the internet. that is very useful, don't try to open a new page in a new windows, but in a new tab. \hotkey{ctrl+num} to navigate the tabs. and \hotkey{ctrl+click} to open a link in a new tab. \hotkey{ctrl+T} open a new tab. \hotkey{ctrl+w} to close the current tab.
 \end{itemize}
 
+\section{moodle}
+\subsection{管理员功能}
+全部以moodle2.0.1版为例进行讲解。
+moodle的安装可以参考我的QQ空间上的一篇文章，目前我是在ubuntu系统上进行安装的。
+\begin{itemize}
+\item 作为一个管理员，首先需要解决的就是用户认证的问题，通常使用 \textbf{网站管理}--\textbf{插件}--\textbf{身份认证}--目前常用的是基于email的自助注册过。
+\item 然后，我们需要建立课程。\textbf{网站管理}--\textbf{课程}--\textbf{添加，修改课程}
+\item 然后，给这个课程分配一个老师，点击课程 \textbf{课程管理}--\textbf{用户，已选课用户}--\textbf{Enrol users}--\textbf{委派角色}选择为老师，然后点\textbf{选课}
+\item 最后是学生选修这门课程。\textbf{课程管理}--\textbf{用户，选课方法}，把Self enrolment（学生）这个标签的小眼睛点开。这样，用户登陆后，就会在这门课中发现加入这门课的功能了。
+\item 
+\end{itemize}
+\subsection{教师功能}
 
 
 \section{主要使用软件}
@@ -308,7 +320,7 @@ doc/*.txt #忽略所有doc/下的文本文件，但是doc/server/arch.txt会包�
 		//这个命令把本地的内容“推”到服务器端。
 		//you must have private key file for ssh in those case, you can copy it from ~/.ssh
         git merge origin/master
-        //默认为本地master分支， 你不能写成 git merge master 而忽略了origin/master 
+        //默认为本地master分支， 你不能写成 git merge master 而忽略了origin/master。
 		\end{verbatim}
 
 \subsubsection{git基本图解}
@@ -1012,7 +1024,7 @@ they both can deal with a big file, while with interactive editor may need long 
 				\item a pair of address, means a scope \\
 				\linuxcommand{1,\^{} \$d } will delete from a the frist line to the first empty line,
 				you can mix three  adress pattern \\
-				\linuxcommand{/$\backslash$.TE/,/$\backslash$.TD/d} delete a scope defined by a pair of macors \\
+				 \linuxcommand{/$\backslash$.TE/,/$\backslash$.TD/d} delete a scope defined by a pair of macors \\
 				\end{itemize}
 			\item[Commands]: \\
 				\begin{enumerate}
@@ -1040,13 +1052,13 @@ they both can deal with a big file, while with interactive editor may need long 
 						\begin{itemize}
 						\item /$\backslash$.Ah/\{ \\
 							s/$\backslash$.Ah */$\backslash$\Pisymbol{psy}{191} \\
-							$\backslash$\Pisymbol{psy}{191} \\
+							 $\backslash$\Pisymbol{psy}{191} \\
 							@A HEAD -/ \\
 							s/``//g \\
 							 s/\$/$\backslash$\Pisymbol{psy}{191} \\
 							\} \\
 							a complex example, you use \{ \} to group three commands on the same adress \\
-							$\backslash$\Pisymbol{psy}{191} is escpate return, we want to add two empty line
+							 $\backslash$\Pisymbol{psy}{191} is escpate return, we want to add two empty line
 							in front of match line and on emtpy line after it. \\
 					
 						\item s/ORA/O'Reilly $\backslash$\& Associates/g  It will chanage ORA to O'Reilly ORA Associates
